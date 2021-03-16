@@ -1,0 +1,58 @@
+%!TEX program = xelatex
+%\documentclass[UTF8,10pt]{ctexbeamer}%,aspectratio=169 %画面比例16:9%
+\documentclass[10pt]{beamer}
+\usepackage[UTF8]{ctex}
+
+\usetheme[
+% sidebar, % 会在每页左侧加上导航栏，参考 The AAU Sidebar Beamer Theme 设置
+% hunnublue, % 不选会默认湖师大红色调，选上会将主题设置为湖师大蓝色调
+% english % 选上，会将图表等标题还原回英文标题
+% hidetitle,
+% hideauthor,
+% hideinstitute,
+]{HUNNUstyle}
+
+\graphicspath{{figures/}}
+%\usetheme{Madrid}
+%\useoutertheme[subsection=false]{miniframes}
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+\AtBeginDocument{%
+    \title{基于优化集成学习与空间相关\\滤波的视觉目标跟踪}
+    %\subtitle{子标题}
+    \author[张三丰]{%
+        \begin{tabular}{ll}
+            学\qquad{}生:& 张三丰 \tabularnewline
+            指导老师:& 李建闽~讲师
+        \end{tabular}
+    }
+    \institute[智能所]{湖南师范大学工程与设计学院\\``先进检测技术与智能信息处理''实验室} % 中括号部分为导航栏底所用尽可能精简
+    \date{\today}% 时间可自行设置
+}	
+\begin{document}%
+{%\xdbg
+  \frame[plain,noframenumbering]{\titlepage}}%首页标题页
+
+%\part{内容}
+\section*{目录}
+  \frame {
+    \frametitle{\secname}
+   % \begin{multicols}{2}
+    \tableofcontents[hidesubsections,sections={<1-6>}]
+  %\end{multicols}
+      }
+
+  \include{sections/general}
+  \include{sections/LogisticRegression}
+  \include{sections/CorrelationFilter}
+  \include{sections/CorrelationFilterswithLimitedBoundaries}
+  \include{sections/reviewIssues}
+
+
+{%\xdbg%末页致谢
+\begin{frame}[plain,noframenumbering]
+ \finalpage{{\huge 谢谢！}}
+%{\huge 谢谢！}
+\end{frame}}
+
+\end{document}
